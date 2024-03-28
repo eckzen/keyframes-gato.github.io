@@ -6,22 +6,24 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Definiendo el banner */
 body{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Forma del banner */
 .fondo{
+    position:fixed;
+    z-index: 1;
     width: 90%;
     height: 210px;
     background:grey;
-    position:fixed;
     border-radius: 25px;
     box-shadow:  6px  6px 7px #00000026;
-    z-index: 1;
     margin-top: 200px;
-    overflow: hidden; /*Importante, esto hace que no se desborde el div edificios*/
+    overflow: hidden; /*Esto hace que no se desborde el div edificios fuera del div fondo*/
 }
 
 .fondo img{
@@ -29,29 +31,23 @@ body{
     z-index: 3;
     width: 150px;
     height: 150px;
-    filter: drop-shadow(0px 0px 3px whitesmoke);
-
-
+    filter: drop-shadow(0px 0px 3px whitesmoke); /*filtro de sombra en la imagen (no en el div)*/
 } 
-
-
 
 .fondo .slogan{
     position:relative;
+    z-index: 4;
     bottom: 57px;
     width: 150px;
     color: rgb(255, 255, 255);
     text-align: center;
-    
-
-z-index: 4;
-
 }
-
+/* Efecto hover y keyframes sobre el texto */
 .fondo .slogan p:hover{
     border-radius: 5px;
     animation: pulso 2s infinite;
 }
+
 @keyframes pulso{
     0% {
         
@@ -68,60 +64,51 @@ z-index: 4;
         box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
       }
 }
+
+/* Div con imagen de edificios (cargada desde styles.css) y animación keyframes */
 .edificios{
-    background-image:url(img/edificiosOne_fsg7nx.svg);
-    height: 240px;
-    
-    bottom: 300px;
-    background-repeat: repeat-x;
-    background-size: cover;
-    
     position: relative;
     z-index: 2;
+    background-image:url(img/edificiosOne_fsg7nx.svg);
+    height: 240px;
+    bottom: 300px;
+    background-repeat: repeat-x; /* Esto repetirá la imagen en el eje x */
+    background-size: cover;
     animation: animar_edificios 120s linear 2s infinite; 
 }
+
 @keyframes  animar_edificios {
     from { background-position: 0 0; }
     to { background-position: 100% 0; }
 }
 
-   
- 
-
+/* Div con gif y animación keyframes*/ 
 .fondo .gato{
 position: relative;
+z-index: 3;
 left:-26%;
 bottom: 380px;
-/* animation: gato 7s ease-in-out infinite; */
-z-index: 3;
-animation-name: gato;
-
-animation-duration: 7s;
-animation-timing-function: ease-in-out;
-animation-iteration-count: infinite;
-
+animation: gato 7s ease-in-out infinite; 
 }
-.fondo .gato img{
-    width: 150px;
-height: 100px;
 
+.fondo .gato img{
+width: 150px;
+height: 100px;
 }
 
 @keyframes gato{
     0%{
         transform: translateX(0px);
         filter: opacity(1%);
-
     }
-    75%{
 
+    75%{
     filter: opacity(95%);
     }
 
     100%{
         transform: translateX(120%); /*Distancia que recorrerá en porcentaje del div, al cambiar tamaño de ventana cambia velocidad*/
         filter: opacity(1%);
-
     }
 }
 
