@@ -1,0 +1,127 @@
+/* Fuente */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Selector Universal */
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo{
+    width: 90%;
+    height: 210px;
+    background:grey;
+    position:fixed;
+    border-radius: 25px;
+    box-shadow:  6px  6px 7px #00000026;
+    z-index: 1;
+    margin-top: 200px;
+    overflow: hidden; /*Importante, esto hace que no se desborde el div edificios*/
+}
+
+.fondo img{
+    position: relative;
+    z-index: 3;
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0px 0px 3px whitesmoke);
+
+
+} 
+
+
+
+.fondo .slogan{
+    position:relative;
+    bottom: 57px;
+    width: 150px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+
+z-index: 4;
+
+}
+
+.fondo .slogan p:hover{
+    border-radius: 5px;
+    animation: pulso 2s infinite;
+}
+@keyframes pulso{
+    0% {
+        
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+        filter: blur(2px);
+      }
+      70% {
+       
+        box-shadow: 0 0 0 30px rgba(204, 169, 44, 0);
+        filter: drop-shadow(0px 0px 3px whitesmoke);
+      }
+      100% {
+    
+        box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+      }
+}
+.edificios{
+    background-image:url(img/edificiosOne_fsg7nx.svg);
+    height: 240px;
+    
+    bottom: 300px;
+    background-repeat: repeat-x;
+    background-size: cover;
+    
+    position: relative;
+    z-index: 2;
+    animation: animar_edificios 120s linear 2s infinite; 
+}
+@keyframes  animar_edificios {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+   
+ 
+
+.fondo .gato{
+position: relative;
+left:-26%;
+bottom: 380px;
+/* animation: gato 7s ease-in-out infinite; */
+z-index: 3;
+animation-name: gato;
+
+animation-duration: 7s;
+animation-timing-function: ease-in-out;
+animation-iteration-count: infinite;
+
+}
+.fondo .gato img{
+    width: 150px;
+height: 100px;
+
+}
+
+@keyframes gato{
+    0%{
+        transform: translateX(0px);
+        filter: opacity(1%);
+
+    }
+    75%{
+
+    filter: opacity(95%);
+    }
+
+    100%{
+        transform: translateX(120%); /*Distancia que recorrerá en porcentaje del div, al cambiar tamaño de ventana cambia velocidad*/
+        filter: opacity(1%);
+
+    }
+}
+
